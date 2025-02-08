@@ -6,9 +6,11 @@ import AppButton from '../components/AppButton';
 import Card from '../components/Card';
 import ListingDetailsScreen from '../screens/ListingDetailsScreen';
 import ViewImage from '../screens/ViewImage';
+import MesaagesScreen from '../screens/MesagesScreen';
 
 export default function App() {
-  return <ViewImage />;
+  return <MesaagesScreen />;
+  // return <ViewImage />;
   // return (
   //   <View
   //     style={{

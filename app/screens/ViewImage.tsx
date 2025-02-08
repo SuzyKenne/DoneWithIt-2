@@ -7,13 +7,13 @@ export default function ViewImage() {
   return (
     <View style={styles.container}>
       <View style={styles.closeIcon}>
-        <MaterialCommunityIcons name="close" color="white" size={35} />
+        <MaterialCommunityIcons name="close" color="white" size={30} />
       </View>
       <View style={styles.deleteIcon}>
         <MaterialCommunityIcons
           name="trash-can-outline"
           color="white"
-          size={35}
+          size={30}
         />
       </View>
       <Image

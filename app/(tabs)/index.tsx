@@ -7,9 +7,21 @@ import Card from '../components/Card';
 import ListingDetailsScreen from '../screens/ListingDetailsScreen';
 import ViewImage from '../screens/ViewImage';
 import MesagesScreen from '../screens/MesagesScreen';
+import Screen from '../components/Screen';
+import Icon from '../components/Icon';
+import ListItem from '../components/ListItem';
 
 export default function App() {
-  return <MesagesScreen />;
+  return (
+    <Screen>
+      <ListItem
+        title="My title"
+        subtitle="my subtitle"
+        ImageComponent={<Icon name="email" size={30} backgroundColor="white" />}
+      />
+      {/* <Icon name="email" size={50} backgroundColor="red" iconColor="white" /> */}
+    </Screen>
+  );
   // return <ViewImage />;
   // return (
   //   <View

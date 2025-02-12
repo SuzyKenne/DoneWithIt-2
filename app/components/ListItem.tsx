@@ -20,7 +20,7 @@ interface Props {
   image?: number;
   ImageComponent?: ReactNode;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   onPress?: (event: GestureResponderEvent) => void;
   renderRightActions?: (
     progressAnimatedValue: Animated.AnimatedInterpolation<string | number>,
@@ -46,7 +46,9 @@ export default function ListItem({
             {image && <Image style={styles.image} source={image} />}
             <View style={styles.detailsContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subtitle}>{subtitle}</AppText>
+              {subtitle && (
+                <AppText style={styles.subtitle}>{subtitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableHighlight>
@@ -56,15 +58,15 @@ export default function ListItem({
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
+  root: {},
   container: {
     flexDirection: 'row',
     padding: 15,
+    backgroundColor: colors.white,
   },
   detailsContainer: {
     marginLeft: 15,
+    justifyContent: 'center',
   },
   image: {
     width: 70,

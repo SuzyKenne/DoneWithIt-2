@@ -1,7 +1,16 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableWithoutFeedback,
+  Modal,
+  Button,
+} from 'react-native';
+import React, { useState } from 'react';
 import colors from '../config/colors';
 import AppText from './AppText/AppText';
+import Screen from './Screen';
 
 interface Props {
   image: number;

@@ -5,6 +5,7 @@ import {
   Platform,
   View,
   TextInput,
+  Switch,
 } from 'react-native';
 import WelcomeScreen from '../screens/WelcomeScreen';
 // import ViewImage from '../screens/ViewImage';
@@ -21,19 +22,32 @@ import AccountScreen from '../screens/AccountScreen';
 import ListingsScreen from '../screens/ListingsScreen';
 import styles from '../components/AppText/style';
 import { useState } from 'react';
+import AppText from '../components/AppText/AppText';
+import AppTextInput from '../components/AppTextInput';
+import AppPicker from '../components/AppPicker';
 
+const categories = [
+  { label: 'Furniture', value: 1 },
+  { label: 'Clothing', value: 2 },
+  { label: 'Camera', value: 3 },
+];
 export default function App() {
-  const [firstName, setFirstName] = useState('');
+  const [category, setCategory] = useState();
   return (
     <Screen>
-      <Text>{firstName}</Text>
-      <TextInput
-        clearButtonMode="always"
-        onChangeText={(text) => setFirstName(text)}
-        placeholder="first name"
-        style={{ borderBottomColor: '#ccc', borderBottomWidth: 1 }}
+      <AppPicker
+        selectedItem={category}
+        onselectedItem={(item) => setCategory(item)}
+        placeholder="Category"
+        icon="apps"
+        items={categories}
       />
+      <AppTextInput icon="email" placeholder="Email" />
+      {/* <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} /> */}
     </Screen>
+    // <Screen>
+    //   <AppTextInput placeholder="Username" icon="email" />
+    // </Screen>
     // <Screen>
     //   <ListItem
     //     title="My title"

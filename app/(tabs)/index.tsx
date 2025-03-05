@@ -21,30 +21,18 @@ import ListItem from '../components/ListItem';
 import AccountScreen from '../screens/AccountScreen';
 import ListingsScreen from '../screens/ListingsScreen';
 import styles from '../components/AppText/style';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import AppText from '../components/AppText/AppText';
 import AppTextInput from '../components/AppTextInput';
 import AppPicker from '../components/AppPicker';
+import LoginScreen from '../screens/LoginScreen';
 
-const categories = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Clothing', value: 2 },
-  { label: 'Camera', value: 3 },
-];
 export default function App() {
-  const [category, setCategory] = useState();
   return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onselectedItem={(item) => setCategory(item)}
-        placeholder="Category"
-        icon="apps"
-        items={categories}
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-      {/* <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} /> */}
-    </Screen>
+    <LoginScreen />
+
+    //
+
     // <Screen>
     //   <AppTextInput placeholder="Username" icon="email" />
     // </Screen>

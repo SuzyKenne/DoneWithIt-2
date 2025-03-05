@@ -26,8 +26,16 @@ interface Props {
   icon?: keyof typeof MaterialCommunityIcons.glyphMap;
   placeholder: string;
   items: CategoryItem[];
+  selectedItem?: CategoryItem;
+  onSelectedItem: (item: CategoryItem) => void;
 }
-export default function AppPicker({ icon, placeholder, items }: Props) {
+export default function AppPicker({
+  icon,
+  placeholder,
+  items,
+  selectedItem,
+  onSelectedItem,
+}: Props) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -43,7 +51,9 @@ export default function AppPicker({ icon, placeholder, items }: Props) {
             />
           )}
 
-          <AppText>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -60,7 +70,10 @@ export default function AppPicker({ icon, placeholder, items }: Props) {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={() => console.log('tapped')}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectedItem(item);
+                }}
               />
             )}
           />
@@ -82,4 +95,5 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
   },
+  text: {},
 });

@@ -6,20 +6,20 @@ import defaultStyle from '../config/style';
 
 interface Props {
   icon?: keyof typeof MaterialCommunityIcons.glyphMap;
-  placeholder: string;
+  // placeholder: string;
 }
-export default function AppTextInput({ icon, placeholder }: Props) {
+export default function AppTextInput({ icon, ...otherProps }: Props) {
   return (
     <View style={styles.container}>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
           size={20}
-          color={colors.medium}
+          color={defaultStyle.colors.medium}
           style={styles.icon}
         />
       )}
-      <TextInput style={defaultStyle.text} placeholder={placeholder} />
+      <TextInput style={defaultStyle.text} {...otherProps} />
     </View>
   );
 }

@@ -1,19 +1,30 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  GestureResponderEvent,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, { Key } from 'react';
 import colors from '../config/colors';
 
 type colorKeys = keyof typeof colors;
 
 interface Props {
-  title: React.ReactNode;
-  color: colorKeys;
+  title?: React.ReactNode;
+  color?: colorKeys;
+  onPress?: (event: GestureResponderEvent) => void;
 }
 
-export default function AppButton({ title, color = 'primary' }: Props) {
+export default function AppButton({
+  title,
+  color = 'primary',
+  onPress,
+}: Props) {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}
-      onPress={() => console.log('Tapped')}
+      onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
